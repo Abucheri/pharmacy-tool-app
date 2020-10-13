@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static './css/main.css' %}">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+{#<a class="navbar-brand" href="/">Kisumu CHMT Drug Inventory Manager</a>#}
+<a class="navbar-brand" href="/"><img src="{% static 'img/banner1.png' %}" alt="Kisumu CHMT Drug Inventory Manager" style="height:45px;"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item active">
+    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+  </li>
+  {% if request.user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="/list_items">Drugs</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/add_items">Add Drugs</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/stock_list_history">Drug Transaction History</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Health Facilities</a>
+    </li>
+  {% endif %}
+  <!-- <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li> -->
+</ul>
+<ul class="navbar-nav">
+        {% if request.user.is_authenticated %}
+        <li><a href="/accounts/logout"><button class="btn btn-danger">{{ user }} | Logout</button></a></li>
+        {% else %}
+        <li><a href="/accounts/login">Login</a></li>
+        {% endif %}
+    </ul>
+</div>
+</nav>
+
+<a href="#" style="margin: 1px"><div id="version-display" data-toggle="modal" data-target="#myModal">Kisumu CHMT Drug Dispensing Tool</div></a>
+  <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+          <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                    <h4 class="modal-title">System Info</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="dev-info">
+                      <p class=""><b>Drug Dispensing Tool</b></p>
+                      <p>VERSION 1.O</p><br>
+
+                      <p class="modal-header">DEVELOPERS:</p>
+                      <p>O'Brien Abucheri || Lincoln Keronei</p>
+                      <p></p>
+{#                      <p><img src="/static/img/logo.png" alt="Developer Logo"></p>#}
+{#                        <p><img src="{% static './img/banner1.png' %}" alt="Developer Logo"></p#}
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+      </div>
+  </div>
