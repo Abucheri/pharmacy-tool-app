@@ -137,7 +137,12 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+<<<<<<< HEAD
 # IDE specific details
 .idea
 
 *.pyc
+=======
+# IDEA info
+.idea
+>>>>>>> d24c7522663f1e582122daa3fb1b3c247075c7a6
